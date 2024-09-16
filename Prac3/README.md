@@ -2,5 +2,5 @@
 
 > **Задание.** Составить UseCase-диаграмму для системы онлайн-продажи товаров
 
-![pictures](./pictures/usecase.png)
+![pictures](./pictures/UseCase.png)
 
