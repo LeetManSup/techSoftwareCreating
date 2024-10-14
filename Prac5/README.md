@@ -29,7 +29,7 @@ func main() {
 	fmt.Println(sum)
 }
 ```
-![pictures](./pictures/image.png)
+![pictures](./pictures/image1_1.png)
 
 ### Задание 1.2.
 Напишите программу, которая преобразует температуру из градусов Цельсия в Фаренгейты и обратно. 
