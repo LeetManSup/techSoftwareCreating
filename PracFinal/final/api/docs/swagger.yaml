@@ -1,0 +1,463 @@
+basePath: /
+definitions:
+  models.Cart:
+    properties:
+      cart_date_of_last:
+        type: string
+      cart_id:
+        type: integer
+    type: object
+  models.Customer:
+    properties:
+      customer_account_login:
+        type: string
+      customer_cart:
+        type: integer
+      customer_email:
+        type: string
+      customer_id:
+        type: integer
+      customer_name:
+        type: string
+      customer_patronymic:
+        type: string
+      customer_phone:
+        type: string
+      customer_surname:
+        type: string
+    type: object
+  models.CustomerOrder:
+    properties:
+      account_login:
+        type: string
+      order_address_id:
+        type: integer
+      order_courier:
+        type: string
+      order_id:
+        type: integer
+      order_seller:
+        type: string
+      order_status_id:
+        type: integer
+      order_time:
+        type: string
+    type: object
+  models.Product:
+    properties:
+      product_count:
+        type: integer
+      product_description:
+        type: string
+      product_id:
+        type: integer
+      product_manufacturer_id:
+        type: integer
+      product_name:
+        type: string
+      product_price:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for final project.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Final Project API
+  version: "1.0"
+paths:
+  /carts:
+    get:
+      description: Get a list of all shopping carts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Cart'
+            type: array
+      summary: Get all carts
+      tags:
+      - Carts
+    post:
+      consumes:
+      - application/json
+      description: Creates a new shopping cart
+      parameters:
+      - description: Cart object to be created
+        in: body
+        name: cart
+        required: true
+        schema:
+          $ref: '#/definitions/models.Cart'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Cart'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+      summary: Create new cart
+      tags:
+      - Carts
+  /carts/{id}:
+    delete:
+      description: Deletes a shopping cart by ID
+      parameters:
+      - description: Cart ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Cart deleted
+          schema:
+            type: string
+        "404":
+          description: Cart not found
+          schema:
+            type: string
+      summary: Delete a cart
+      tags:
+      - Carts
+    put:
+      consumes:
+      - application/json
+      description: Updates the shopping cart by ID
+      parameters:
+      - description: Cart ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated cart object
+        in: body
+        name: cart
+        required: true
+        schema:
+          $ref: '#/definitions/models.Cart'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Cart'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+        "404":
+          description: Cart not found
+          schema:
+            type: string
+      summary: Update an existing cart
+      tags:
+      - Carts
+  /customers:
+    get:
+      description: Get a list of all customers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Customer'
+            type: array
+      summary: Get all customers
+      tags:
+      - Customers
+    post:
+      consumes:
+      - application/json
+      description: Creates a new customer
+      parameters:
+      - description: Customer object to be created
+        in: body
+        name: customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Customer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+      summary: Create new customer
+      tags:
+      - Customers
+  /customers/{id}:
+    delete:
+      description: Deletes a customer by ID
+      parameters:
+      - description: Customer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Customer deleted
+          schema:
+            type: string
+        "404":
+          description: Customer not found
+          schema:
+            type: string
+      summary: Delete a customer
+      tags:
+      - Customers
+    put:
+      consumes:
+      - application/json
+      description: Updates the customer by ID
+      parameters:
+      - description: Customer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated customer object
+        in: body
+        name: customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+        "404":
+          description: Customer not found
+          schema:
+            type: string
+      summary: Update an existing customer
+      tags:
+      - Customers
+  /orders:
+    get:
+      description: Get a list of all customer orders
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.CustomerOrder'
+            type: array
+      summary: Get all orders
+      tags:
+      - Orders
+    post:
+      consumes:
+      - application/json
+      description: Creates a new customer order
+      parameters:
+      - description: Order object to be created
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.CustomerOrder'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.CustomerOrder'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+      summary: Create new order
+      tags:
+      - Orders
+  /orders/{id}:
+    delete:
+      description: Deletes a customer order by ID
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Order deleted
+          schema:
+            type: string
+        "404":
+          description: Order not found
+          schema:
+            type: string
+      summary: Delete an order
+      tags:
+      - Orders
+    put:
+      consumes:
+      - application/json
+      description: Updates the customer order by ID
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated order object
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.CustomerOrder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.CustomerOrder'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+        "404":
+          description: Order not found
+          schema:
+            type: string
+      summary: Update an existing order
+      tags:
+      - Orders
+  /products:
+    get:
+      description: Get a list of all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Product'
+            type: array
+      summary: Get all products
+      tags:
+      - Products
+    post:
+      consumes:
+      - application/json
+      description: Creates a new product
+      parameters:
+      - description: Product object to be created
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/models.Product'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+      summary: Create new product
+      tags:
+      - Products
+  /products/{id}:
+    delete:
+      description: Deletes a product by ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product deleted
+          schema:
+            type: string
+        "404":
+          description: Product not found
+          schema:
+            type: string
+      summary: Delete a product
+      tags:
+      - Products
+    put:
+      consumes:
+      - application/json
+      description: Updates the product by ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated product object
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/models.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Invalid request body
+          schema:
+            type: string
+        "404":
+          description: Product not found
+          schema:
+            type: string
+      summary: Update an existing product
+      tags:
+      - Products
+swagger: "2.0"
