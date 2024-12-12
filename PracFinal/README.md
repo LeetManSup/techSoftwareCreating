@@ -65,7 +65,7 @@ go get -u gorm.io/gorm
 go get -u gorm.io/driver/postgres
 ```
 
-Код проекта доступен в текущем репозитории.
+Код проекта доступен по [ссылке](https://github.com/LeetManSup/techSoftwareCreating/tree/main/PracFinal/final).
 
 ## Структура проекта
 ```
