@@ -193,3 +193,8 @@ Authorization: Bearer {jwt-token}
 
 ---
 
+### Swagger (на реализованный CRUD)
+
+![alt text](images/image2.png)
+
+![alt text](images/image3.png)
