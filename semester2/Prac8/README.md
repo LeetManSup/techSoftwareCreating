@@ -2,6 +2,8 @@
 
 ## 1. gRPC
 
+Код проекта доступен [по ссылке](https://github.com/LeetManSup/tsc-p8-grpc/).
+
 Установка `protoc`:
 ```shell
 winget install protobuf
@@ -124,6 +126,8 @@ func main() {
 ![alt text](images/image2.png)
 
 ## 2. GraphQL
+
+Код проекта доступен [по ссылке](https://github.com/LeetManSup/tsc-p8-graphql/).
 
 Инициализация проекта:
 ```shell
