@@ -1,4 +1,4 @@
-## 2. Redis pub/sub
+# Практическое задание 11: Redis pub/sub
 
 Код проекта доступен [по ссылке](https://github.com/LeetManSup/tsc-p7-redis-pubsub/).
 
